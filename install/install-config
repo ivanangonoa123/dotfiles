@@ -1,0 +1,52 @@
+#!/bin/bash
+log_file=~/install_progress_log.txt
+
+sudo apt-get -y install curl
+
+if type -p curl > /dev/null; then
+    echo "curl Installed" >> $log_file
+else
+    echo 'curl failed' >> $log_file
+fi
+
+# Install node
+curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+if type -p node > /dev/null; then
+    echo -n "Node version: "; echo -n `node --version`; echo " Installed" >> $log_file
+else
+    echo "node FAILED TO INSTALL!!!" >> $log_file
+fi
+
+sudo apt-get -y install npm
+
+if type -p curl > /dev/null; then
+    echo "npm Installed" >> $log_file
+else
+    echo 'npm failed' >> $log_file
+fi
+
+sudo apt-get -y install tmux
+
+if type -p tmux > /dev/null; then
+    echo "tmux Installed" >> $log_file
+else
+    echo 'tmux failed' >> $log_file
+fi
+
+sudo apt-get -y install guake
+
+if type -p guake > /dev/null; then
+    echo "guake Installed" >> $log_file
+else
+    echo 'guake failed' >> $log_file
+fi
+
+#=============
+# The end
+#==============
+cat $log_file
+echo 'olrait'
+echo
+rm $log_file
