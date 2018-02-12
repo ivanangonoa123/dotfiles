@@ -27,6 +27,9 @@ else
     echo 'npm failed' >> $log_file
 fi
 
+#git-open command
+npm install --global git-open
+
 sudo apt-get -y install tmux
 
 if type -p tmux > /dev/null; then
@@ -41,6 +44,19 @@ if type -p guake > /dev/null; then
     echo "guake Installed" >> $log_file
 else
     echo 'guake failed' >> $log_file
+fi
+
+#sublime
+sudo add-apt-repository ppa:webupd8team/sublime-text-3
+sudo apt-get update
+sudo apt-get install -y sublime-text-installer
+
+#pm-utils
+sudo apt install -y pm-utils
+if type -p pm-utils > /dev/null; then
+    echo "pm-suspend Installed" >> $log_file
+else
+    echo 'pm-suspend failed' >> $log_file
 fi
 
 #=============
