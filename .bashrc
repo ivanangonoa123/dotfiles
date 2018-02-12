@@ -2,6 +2,12 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+#source my s$$#
+for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -116,19 +122,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#cd.. ahhhh bashhta
-alias cd..='cd ..'
-
-jiraurl="https://consolechomp.atlassian.net/"
 
 
-# console anal
-anal () {
-        echo "you like anal, $url?"
-}
 
-# open chrome ticket 
-ticket () {
-        google-chrome $jiraurl'browse/'$1
-}
 
