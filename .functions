@@ -1,0 +1,13 @@
+#!/bin/bash
+
+jiraurl="https://consolechomp.atlassian.net/"
+
+# console hello
+hellocho () {
+        echo "hello world, $1?"
+}
+
+# open chrome ticket 
+ticket () {
+        google-chrome $jiraurl'browse/'$1
+}

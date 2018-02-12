@@ -29,6 +29,11 @@ fi
 
 #git-open command
 npm install --global git-open
+if type -p git-open > /dev/null; then
+    echo "git-open Installed" >> $log_file
+else
+    echo 'git-open failed' >> $log_file
+fi
 
 sudo apt-get -y install tmux
 
@@ -52,11 +57,19 @@ sudo apt-get update
 sudo apt-get install -y sublime-text-installer
 
 #pm-utils
-sudo apt install -y pm-utils
+sudo apt -y install pm-utils
 if type -p pm-utils > /dev/null; then
     echo "pm-suspend Installed" >> $log_file
 else
     echo 'pm-suspend failed' >> $log_file
+fi
+
+#xclip command
+sudo apt-get -y install xclip
+if type -p xclip > /dev/null; then
+    echo "xclip Installed" >> $log_file
+else
+    echo 'xclip failed' >> $log_file
 fi
 
 #=============

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#cd.. ahhhh bashhta
+alias cd..='cd ..'
