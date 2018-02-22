@@ -3,11 +3,19 @@
 git pull origin master;
 
 function doIt() {
-	rsync --exclude ".git/" \
+	#move everything to home
+	rsync -av --exclude ".git/" \
 		--exclude "bootstrap.sh" \
 		--exclude "README.md" \
+		--exclude "settings/"
+		--exclude "install/rc.local" 
 		-avh --no-perms . ~;
+
+	#move rc.local to /etc/
+	rsync -av install/rc.local /etc/;
+
 	source ~/.bashrc;
+	source /etc/rc.local;
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
