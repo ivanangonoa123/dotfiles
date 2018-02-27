@@ -51,10 +51,25 @@ else
     echo 'guake failed' >> $log_file
 fi
 
+sudo apt-get -y install imwheel
+
+if type -p imwheel > /dev/null; then
+    echo "imwheel Installed" >> $log_file
+else
+    echo 'imwheel failed' >> $log_file
+fi
+
 #sublime
 sudo add-apt-repository ppa:webupd8team/sublime-text-3
 sudo apt-get update
 sudo apt-get install -y sublime-text-installer
+if type -p subl > /dev/null; then
+    echo "sublime Installed" >> $log_file
+else
+    echo 'subilme install failed' >> $log_file
+fi
+
+#TODO playonlinux
 
 #pm-utils
 sudo apt -y install pm-utils
